@@ -1,43 +1,59 @@
-# Iris Flower Classification Using Machine Learning and Gradio
+# Iris Flower Classification using Random Forest Classifier
 
-## Project Overview
+## Project Structure
 
-This project focuses on classifying Iris flower species using Machine Learning algorithms. The Iris dataset is one of the most popular datasets for classification tasks and contains measurements of flower characteristics such as sepal length, sepal width, petal length, and petal width.
+```text
+Iris_Classification/
+│
+├── Iris.csv
+├── Iris_classification.ipynb
+├── model.pkl
+├── README.md
+│
+└── Gradio Application
 
-The project includes:
+## Overview
 
-* Data preprocessing and cleaning
+This project uses the Iris Flower Dataset to classify iris flowers into three species:
+
+* Iris Setosa
+* Iris Versicolor
+* Iris Virginica
+  
+
+The project covers the complete Machine Learning workflow, including:
+
+* Data Loading
+* Data Cleaning
 * Exploratory Data Analysis (EDA)
-* Data visualization
-* Feature scaling
-* Training multiple Machine Learning models
-* Model performance comparison
-* Selection of the best-performing model
-* Saving the trained model using Pickle (.pkl)
-* Deploying the model with Gradio for real-time predictions
+* Feature Engineering
+* Model Training using Random Forest Classifier
+* Model Evaluation
+* Model Saving using Pickle/Joblib
+* Gradio Web Application Deployment
 
 ---
 
 ## Dataset
 
-The Iris dataset contains 150 samples belonging to three species:
+The Iris dataset contains flower measurements and corresponding species labels.
+
+### Features
+
+| Feature      | Description                    |
+| ------------ | ------------------------------ |
+| Sepal Length | Length of sepal in centimeters |
+| Sepal Width  | Width of sepal in centimeters  |
+| Petal Length | Length of petal in centimeters |
+| Petal Width  | Width of petal in centimeters  |
+
+### Target Variable
+
+Species
 
 * Iris-setosa
 * Iris-versicolor
 * Iris-virginica
-
-### Features
-
-| Feature      | Description          |
-| ------------ | -------------------- |
-| Sepal Length | Length of sepal (cm) |
-| Sepal Width  | Width of sepal (cm)  |
-| Petal Length | Length of petal (cm) |
-| Petal Width  | Width of petal (cm)  |
-
-### Target Variable
-
-Species of Iris flower.
 
 ---
 
@@ -49,197 +65,228 @@ Species of Iris flower.
 * Matplotlib
 * Seaborn
 * Scikit-Learn
-* Pickle
+* Joblib
 * Gradio
-
----
-
-## Machine Learning Models
-
-The following classification algorithms were trained and evaluated:
-
-1. Logistic Regression
-2. Gaussian Naive Bayes
-3. Support Vector Machine (SVM)
-4. Decision Tree Classifier
-5. Random Forest Classifier
 
 ---
 
 ## Project Workflow
 
-### 1. Data Collection
+### 1. Data Loading
 
-* Load the Iris dataset from CSV file.
-* Inspect dataset structure and contents.
+The dataset is loaded using Pandas.
+
+```python
+df = pd.read_csv("Iris.csv")
+```
+
+---
 
 ### 2. Data Cleaning
 
-* Check missing values.
-* Detect duplicate records.
-* Remove duplicates if present.
+The following preprocessing steps were performed:
+
+* Checked dataset dimensions
+* Checked missing values
+* Removed duplicate records
+* Removed unnecessary ID column
+
+---
 
 ### 3. Exploratory Data Analysis (EDA)
 
-Performed the following visualizations:
+Several visualizations were created to understand the dataset:
 
-* Species Distribution Pie Chart
-* Histograms
-* KDE Plots
-* Boxplots
-* Violin Plots
-* Correlation Heatmap
+#### Species Distribution
+
+* Pie Chart
+
+#### Feature Distribution
+
+* Histogram
+* KDE Plot
+
+#### Outlier Analysis
+
+* Box Plot
+* Violin Plot
+
+#### Correlation Analysis
+
+* Heatmap
+
+#### Feature Relationships
+
 * Pair Plot
+
+---
 
 ### 4. Data Preprocessing
 
-* Convert categorical labels into numerical values.
-* Remove unnecessary columns.
-* Separate features and target variable.
-* Split dataset into training and testing sets.
-* Apply feature scaling using StandardScaler.
+The species labels were converted into numerical values.
 
-### 5. Model Training
-
-Each model was trained using:
-
-* Training Dataset
-* 5-Fold Cross Validation
-
-### 6. Model Evaluation
-
-Performance was evaluated using:
-
-* Accuracy Score
-* Classification Report
-* Confusion Matrix
-* Cross Validation Accuracy
-
-### 7. Model Comparison
-
-All model accuracies were compared using a bar chart.
-
-### 8. Best Model Selection
-
-The model with the highest accuracy was automatically selected.
-
-### 9. Model Saving
-
-The best-performing model was saved as:
-
-* iris_best_model.pkl
-* scaler.pkl
-
-### 10. Deployment
-
-A Gradio web application was created to allow users to enter flower measurements and receive species predictions instantly.
-
----
-
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/iris-classification.git
-cd iris-classification
+```python
+target = {
+    "Iris-versicolor": 0,
+    "Iris-virginica": 1,
+    "Iris-setosa": 2
+}
 ```
 
-Install required libraries:
+Feature scaling was applied using StandardScaler.
 
-```bash
-pip install gradio seaborn scikit-learn pandas numpy matplotlib
+```python
+scaler = StandardScaler()
 ```
 
 ---
 
-## Running the Project
+### 5. Train-Test Split
 
-Run the notebook or Python script:
+The dataset was split into:
 
-```bash
-python app.py
-```
+* 80% Training Data
+* 20% Testing Data
 
-Launch the Gradio application:
-
-```bash
-python gradio_app.py
+```python
+train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
 ```
 
 ---
 
-## Model Prediction Inputs
+## Machine Learning Model
 
-The Gradio application accepts:
+### Random Forest Classifier
+
+Random Forest is an ensemble learning algorithm that combines multiple Decision Trees and makes predictions using majority voting.
+
+```python
+rf = RandomForestClassifier()
+```
+
+### Why Random Forest?
+
+* High Accuracy
+* Handles Non-Linear Data
+* Reduces Overfitting
+* Robust and Reliable
+* Works Well on Small and Large Datasets
+
+---
+
+## Model Evaluation
+
+The model was evaluated using:
+
+### Accuracy Score
+
+```python
+accuracy_score(y_test, y_pred)
+```
+
+### Classification Report
+
+Provides:
+
+* Precision
+* Recall
+* F1 Score
+
+### Confusion Matrix
+
+Shows correct and incorrect predictions for each class.
+
+---
+
+## Model Saving
+
+After training, the model is saved using Joblib.
+
+```python
+joblib.dump(rf, "model.pkl")
+```
+
+Saved file:
+
+```text
+model.pkl
+```
+
+---
+
+## Gradio Web Application
+
+The trained model is integrated into a Gradio interface.
+
+### Input Features
 
 * Sepal Length
 * Sepal Width
 * Petal Length
 * Petal Width
 
-Output:
+### Output
 
-* Predicted Iris Species
+Predicted Iris Species
 
----
-
-## Sample Prediction
-
-Input:
+Example:
 
 ```text
+Input:
 Sepal Length = 5.1
 Sepal Width = 3.5
 Petal Length = 1.4
 Petal Width = 0.2
-```
 
 Output:
-
-```text
 Iris-setosa
 ```
 
 ---
 
+## Running the Project
+
+### Install Dependencies
+
+```bash
+pip install gradio matplotlib numpy pandas seaborn scikit-learn joblib
+```
+
+### Run Notebook
+
+Open:
+
+```text
+Iris_classification.ipynb
+```
+
+Execute all cells sequentially.
+
+### Launch Gradio Application
+
+Run the final cell:
+
+```python
+app.launch()
+```
+
+A local Gradio URL will be generated.
+
+---
+
+
+<img width="1366" height="685" alt="Image" src="https://github.com/user-attachments/assets/301c3820-1cc5-4c7c-9ab9-a5515a410a28" />
+
+---
+
 ## Results
 
-The project compares multiple Machine Learning models and automatically selects the best-performing classifier based on test accuracy.
-
-Typical accuracy achieved:
-
-* Logistic Regression: ~95%+
-* Gaussian Naive Bayes: ~95%+
-* SVM: ~96–100%
-* Decision Tree: ~93–100%
-* Random Forest: ~96–100%
-
----
-
-## Future Enhancements
-
-* Hyperparameter tuning using GridSearchCV
-* Deployment on Hugging Face Spaces
-* Deployment on Streamlit Cloud
-* Docker containerization
-* Model explainability using SHAP
-* Feature importance visualization
-
----
-
-## Learning Outcomes
-
-Through this project, the following concepts were explored:
-
-* Data preprocessing
-* Exploratory Data Analysis
-* Machine Learning classification
-* Model evaluation techniques
-* Cross Validation
-* Model comparison
-* Model persistence using Pickle
-* Web application deployment with Gradio
+The Random Forest Classifier successfully classifies iris flowers based on their measurements and provides predictions through an interactive Gradio web interface.
 
 ---
 
@@ -247,7 +294,6 @@ Through this project, the following concepts were explored:
 
 Yasmeen Begum
 
-Machine Learning and Artificial Intelligence Enthusiast
+Machine Learning & Artificial Intelligence 
 
 
-<img width="1366" height="685" alt="Image" src="https://github.com/user-attachments/assets/301c3820-1cc5-4c7c-9ab9-a5515a410a28" />
