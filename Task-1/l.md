@@ -5,11 +5,17 @@
 
 Iris_Classification/
 │
+
 ├── Iris.csv
+
 ├── Iris_classification.ipynb
+
 ├── model.pkl
+
 ├── README.md
+
 │
+
 └── Gradio Application
 
 ## Overview
