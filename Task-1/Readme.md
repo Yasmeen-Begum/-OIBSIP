@@ -5,8 +5,6 @@
 
 Iris_Classification/
 
-│
-
 ├── Iris.csv
 
 ├── Iris_classification.ipynb
