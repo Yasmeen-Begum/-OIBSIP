@@ -4,6 +4,7 @@
 
 
 Iris_Classification/
+
 │
 
 ├── Iris.csv
@@ -13,8 +14,6 @@ Iris_Classification/
 ├── model.pkl
 
 ├── README.md
-
-│
 
 └── Gradio Application
 
