@@ -22,19 +22,33 @@ The goal is to identify unemployment patterns, understand regional disparities, 
 
 Unemployment-Analysis/
 │
+
 ├── data/
+
 │   ├── Unemployment in India.csv
+
 │   └── Unemployment_Rate_upto_11_2020.csv
+
 │
+
 ├── notebooks/
+
 │   └── unemployment_analysis.ipynb
+
 │
+
 ├── models/
+
 │   ├── random_forest_model.pkl
+
 │   ├── xgboost_model.pkl
+
 │   ├── region_encoder.pkl
+
 │   └── area_encoder.pkl
+
 ├── requirements.txt
+
 └── README.md
 
 ## Dataset
@@ -216,5 +230,5 @@ An interactive Gradio interface was developed to predict unemployment rates base
 - Interactive inputs
 - Instant unemployment rate estimation
 
-
+## output
 <img width="1366" height="697" alt="Image" src="https://github.com/user-attachments/assets/5ec9b395-d419-4aa4-a8fb-46cffdb62d5c" />
