@@ -6,7 +6,6 @@ This project analyzes unemployment trends across different states and regions in
 
 The goal is to identify unemployment patterns, understand regional disparities, compare rural and urban unemployment, and build predictive models that estimate unemployment rates using socioeconomic indicators.
 
----
 
 ## Objectives
 
@@ -18,11 +17,9 @@ The goal is to identify unemployment patterns, understand regional disparities, 
 - Build machine learning models for unemployment prediction.
 - Deploy an interactive prediction system using Gradio.
 
----
 
 ## Project Structure
 
-```text
 Unemployment-Analysis/
 │
 ├── data/
@@ -68,7 +65,6 @@ Contains:
 
 Dataset Source: Kaggle Unemployment in India Dataset
 
----
 
 ## Technologies Used
 
@@ -88,7 +84,6 @@ Dataset Source: Kaggle Unemployment in India Dataset
 - Joblib
 - Gradio
 
----
 
 ## Exploratory Data Analysis
 
@@ -120,7 +115,7 @@ The following analyses were performed:
 - Sunburst Charts
 - Choropleth Maps
 
----
+
 
 ## COVID-19 Impact Analysis
 
@@ -135,7 +130,6 @@ A significant increase in unemployment was observed during:
 
 This indicates the economic impact of lockdown restrictions across India.
 
----
 
 ## Key Visualizations
 
@@ -169,7 +163,7 @@ Shows relationships among:
 
 Visualizes unemployment distribution across Indian states.
 
----
+
 
 ## Machine Learning Models
 
@@ -191,7 +185,7 @@ Used for:
 - Performance comparison
 - Advanced predictive modeling
 
----
+
 
 ## Evaluation Metrics
 
@@ -201,7 +195,7 @@ Models were evaluated using:
 - Root Mean Squared Error (RMSE)
 - R² Score
 
----
+
 
 ## Gradio Web Application
 
@@ -221,8 +215,6 @@ An interactive Gradio interface was developed to predict unemployment rates base
 - State selection dropdown
 - Interactive inputs
 - Instant unemployment rate estimation
-
----
 
 
 <img width="1366" height="697" alt="Image" src="https://github.com/user-attachments/assets/5ec9b395-d419-4aa4-a8fb-46cffdb62d5c" />
