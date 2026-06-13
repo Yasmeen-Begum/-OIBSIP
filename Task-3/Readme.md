@@ -140,13 +140,11 @@ SMS-Spam-Detection/
 │
 ├── spam.csv
 ├── notebook.ipynb
-├── app.py
 ├── model.pkl
 ├── vectorizer.pkl
 ├── requirements.txt
 ├── README.md
-│
-└── assets/
+
 ```
 
 ---
@@ -289,13 +287,6 @@ Features:
 * Spam/Ham classification
 * Lightweight deployment
 
-Run the application:
-
-```bash
-python app.py
-```
-
----
 
 ## Example Predictions
 
@@ -304,14 +295,15 @@ python app.py
 Input:
 
 ```text
-Congratulations! You have won a free iPhone. Click here to claim now.
+Congratulations! You have won a $1000 Amazon Gift Card. Click the link below to claim your prize now.
 ```
 
 Output:
 
 ```text
-Spam
+Spam Message
 ```
+
 
 ### Example 2
 
