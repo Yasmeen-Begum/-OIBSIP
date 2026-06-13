@@ -302,7 +302,8 @@ Output:
 
 Spam Message
 
-<img width="893" height="311" alt="Image" src="https://github.com/user-attachments/assets/a1da41b7-ce98-4120-afb9-6d7570afde00" />
+
+<img width="870" height="312" alt="Image" src="https://github.com/user-attachments/assets/88d4957f-82dd-4446-843b-c4308453e062" />
 
 
 ### Example 2
@@ -310,15 +311,14 @@ Spam Message
 Input:
 
 ```text
-Hey, are we meeting at 5 PM today?
+The meetings has been resheduled to 3pm.Please check your email. 
 ```
 
 Output:
 
-`
 Ham Message
 
-<img width="870" height="312" alt="Image" src="https://github.com/user-attachments/assets/88d4957f-82dd-4446-843b-c4308453e062" />
+<img width="893" height="311" alt="Image" src="https://github.com/user-attachments/assets/a1da41b7-ce98-4120-afb9-6d7570afde00" />
 
 
 
